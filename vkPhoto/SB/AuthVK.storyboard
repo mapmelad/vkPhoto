@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--AuthVK Controller-->
+        <scene sceneID="HU0-0P-dIA">
+            <objects>
+                <viewController storyboardIdentifier="AuthVKControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kba-UE-2EF" customClass="AuthVKController" customModule="vkPhoto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Pi-rU-B1e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNU-OY-M2E">
+                                <rect key="frame" x="0.0" y="81" width="375" height="586"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kba-UE-2EF" id="rDX-OJ-DIc"/>
+                                </connections>
+                            </webView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пожалуйста, авторизуйтесь!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ckl-a7-r0w">
+                                <rect key="frame" x="10" y="40" width="355" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NNT-eu-7k8" firstAttribute="bottom" secondItem="kNU-OY-M2E" secondAttribute="bottom" id="5IF-kV-FPp"/>
+                            <constraint firstItem="kNU-OY-M2E" firstAttribute="leading" secondItem="NNT-eu-7k8" secondAttribute="leading" id="Bpr-9U-4ya"/>
+                            <constraint firstItem="ckl-a7-r0w" firstAttribute="leading" secondItem="NNT-eu-7k8" secondAttribute="leading" constant="10" id="cqX-b4-Jd4"/>
+                            <constraint firstItem="NNT-eu-7k8" firstAttribute="trailing" secondItem="kNU-OY-M2E" secondAttribute="trailing" id="fze-xu-Kf2"/>
+                            <constraint firstItem="kNU-OY-M2E" firstAttribute="top" secondItem="ckl-a7-r0w" secondAttribute="bottom" constant="20" id="gLg-KA-YbB"/>
+                            <constraint firstItem="ckl-a7-r0w" firstAttribute="top" secondItem="NNT-eu-7k8" secondAttribute="top" constant="20" id="lNQ-TY-50O"/>
+                            <constraint firstItem="NNT-eu-7k8" firstAttribute="trailing" secondItem="ckl-a7-r0w" secondAttribute="trailing" constant="10" id="u2D-WE-1GP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NNT-eu-7k8"/>
+                    </view>
+                    <connections>
+                        <outlet property="infoLabel" destination="ckl-a7-r0w" id="Rv0-t3-4sE"/>
+                        <outlet property="webView" destination="kNU-OY-M2E" id="zDX-Tc-Reb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qKh-Oh-3oQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-458.39999999999998" y="88.605697151424295"/>
+        </scene>
+    </scenes>
+</document>
