@@ -13,15 +13,9 @@ enum Result<T> {
     case Fail(String)
 }
 
-protocol IRequest {
-    var urlRequest: URLRequest? { get }
-}
-
-
 protocol IRequestSender {
     func send<T>(config: String, completionHandler: @escaping (Result<T>) -> Void)
 }
-
 
 class RequestSender: IRequestSender {
     
@@ -40,20 +34,19 @@ class RequestSender: IRequestSender {
                 completionHandler(Result.Fail(error.localizedDescription))
                 return
             }
-    
+            
             if let data = data {
-                do {
-                    //let jsonSerialized: T = try JSONSerialization.jsonObject(with: data, options: [])  as! T
-                    completionHandler(Result.Success(data as! T))
-                    return
-                    
-                } catch let error as NSError {
-                    completionHandler(Result.Fail("\(error)"))
-                    return
-                }
+                completionHandler(Result.Success(data as! T))
+                return
             }
         }
-        
         task.resume()
+    }
+    
+    func removeCookies(){
+        let cookieJar = HTTPCookieStorage.shared
+        for cookie in cookieJar.cookies! {
+            cookieJar.deleteCookie(cookie)
+        }
     }
 }

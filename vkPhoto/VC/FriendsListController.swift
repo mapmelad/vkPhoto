@@ -17,7 +17,7 @@ class FriendsListController: UIViewController {
     var arrayFriends = [Profile?]()
     var getFriendsUrl = ""
     
-    //MARK: - IBActions
+    //MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - Life cycle
@@ -25,20 +25,36 @@ class FriendsListController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Друзья"
+        indicator.customActivityIndicatory(self.view, startAnimate: true)
+        getFriends()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: - IBActions
+    @IBAction func exitButtonAction(_ sender: Any) {
+        bindExit()
+    }
+}
+
+
+//MARK: - Bindings
+extension FriendsListController {
+    
+    private func getFriends(){
         
         if let t = VkAPI.shared.token {
             getFriendsUrl = "https://api.vk.com/method/friends.get?fields=city,photo_50,photo_200_orig&access_token=\(t)&v=5.7"
         }
-        self.tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-        
-        indicator.customActivityIndicatory(self.view, startAnimate: true)
         
         requestSender.send(config: getFriendsUrl){ (result: Result<Data>) in
             switch result {
             case .Success(let profiles):
                 if let t = self.vkParse.parse(data: profiles) {
                     self.arrayFriends = t
-                    //self.downloadImage()
                     DispatchQueue.main.async {
                         self.indicator.customActivityIndicatory(self.view, startAnimate: false)
                         self.tableView.reloadData()
@@ -50,36 +66,37 @@ class FriendsListController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-}
-
-//MARK: - Bindings
-extension FriendsListController{
-    
-    func downloadImage() {
+    private func bindExit(){
         
-        DispatchQueue.global(qos: .userInitiated).async {
-            for (index, element) in self.arrayFriends.enumerated() {
-                let data = try? Data(contentsOf: URL(string: (element?.photo_50)!)!)
-                self.arrayFriends[index]?.image50 = data
+        let logoutString = "https://oauth.vk.com/logout?client_id=2949451"
+        
+        let alert = UIAlertController(title: "Внимание", message: "Вы точно хотите выйти?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: { action in
+            self.requestSender.removeCookies()
+            self.requestSender.send(config: logoutString){ (result: Result<Data>) in
+                switch result {
+                case .Success(_):
+                    VkAPI.shared.token = nil
+                    if let vc = UIStoryboard(name: "Start", bundle: nil).instantiateViewController(withIdentifier: "StartNavigationControllerID") as? StartNavigationController {
+                        self.present(vc, animated: true, completion: nil)
+                    }
+                case .Fail(let error):
+                    print(error as String)
+                }
             }
-            DispatchQueue.main.async {
-                self.indicator.customActivityIndicatory(self.view, startAnimate: false)
-                self.tableView.reloadData()
-            }
-        }
+        }))
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
-    
 }
 
 //MARK: - UITableViewDelegate
 extension FriendsListController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    
 }
 
 //MARK: - UITableViewDataSource
@@ -94,14 +111,17 @@ extension FriendsListController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath) as! FriendsTableViewCell
         cell.nameLabel.text = "\(arrayFriends[indexPath.row]?.last_name ?? "") \(arrayFriends[indexPath.row]?.first_name ?? "")"
         
-        if let imageProgile50 = self.arrayFriends[indexPath.row]?.image50 {
-            cell.profileImage.image = UIImage(data: imageProgile50)!
+        if let imageProfile50 = self.arrayFriends[indexPath.row]?.image50 {
+            cell.profileImage.image = UIImage(data: imageProfile50)!
         } else {
             DispatchQueue.global(qos: .userInitiated).async {
-                let data = try? Data(contentsOf: URL(string: (self.arrayFriends[indexPath.row]?.photo_50)!)!)
-                self.arrayFriends[indexPath.row]?.image50 = data
-                DispatchQueue.main.async {
-                    cell.profileImage.image = UIImage(data: data!)!
+                if let data = try? Data(contentsOf: URL(string: (self.arrayFriends[indexPath.row]?.photo_50)!)!) {
+                    self.arrayFriends[indexPath.row]?.image50 = data
+                    DispatchQueue.main.async {
+                        cell.profileImage.image = UIImage(data: data)!
+                    }
+                } else {
+                    print("Проверьте подключение к интернету")
                 }
             }
         }
@@ -109,7 +129,6 @@ extension FriendsListController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if let profileVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewControllerID") as? ProfileViewController {
             profileVC.profile = self.arrayFriends[indexPath.row]
             if let navigator = navigationController {
@@ -117,4 +136,5 @@ extension FriendsListController: UITableViewDataSource {
             }
         }
     }
+    
 }

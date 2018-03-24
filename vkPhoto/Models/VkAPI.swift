@@ -11,5 +11,4 @@ import Foundation
 class VkAPI {
     static let shared = VkAPI()
     var token: String? = nil
-    var baseURL: String { return "vk.com/" }
 }

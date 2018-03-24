@@ -74,7 +74,11 @@
                         <viewLayoutGuide key="safeArea" id="8L6-85-3GU"/>
                     </view>
                     <navigationItem key="navigationItem" id="AtX-kG-C1Q">
-                        <barButtonItem key="rightBarButtonItem" title="Выход" id="6bv-VN-W7H"/>
+                        <barButtonItem key="rightBarButtonItem" title="Выход" id="6bv-VN-W7H">
+                            <connections>
+                                <action selector="exitButtonAction:" destination="gLr-QA-xS2" id="ZoJ-Nf-cJY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ehk-al-6fg" id="vDq-ZR-Ppn"/>

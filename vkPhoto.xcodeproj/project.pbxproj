@@ -18,16 +18,27 @@
 		54447ABC20646C75001631E0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54447ABB20646C75001631E0 /* Profile.storyboard */; };
 		54447ABE20646CDA001631E0 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54447ABD20646CDA001631E0 /* Profile.swift */; };
 		54447AC020646D92001631E0 /* VkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54447ABF20646D92001631E0 /* VkParser.swift */; };
-		54447AC22064D74B001631E0 /* LoginErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54447AC12064D74B001631E0 /* LoginErrorParser.swift */; };
 		54A940A02063ADF400C77796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A9409F2063ADF400C77796 /* AppDelegate.swift */; };
-		54A940A22063ADF400C77796 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A940A12063ADF400C77796 /* ViewController.swift */; };
-		54A940A52063ADF400C77796 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54A940A32063ADF400C77796 /* Main.storyboard */; };
+		54A940A22063ADF400C77796 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A940A12063ADF400C77796 /* StartViewController.swift */; };
+		54A940A52063ADF400C77796 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54A940A32063ADF400C77796 /* Start.storyboard */; };
 		54A940A72063ADF400C77796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54A940A62063ADF400C77796 /* Assets.xcassets */; };
 		54A940AA2063ADF400C77796 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54A940A82063ADF400C77796 /* LaunchScreen.storyboard */; };
 		54A940B22063B12400C77796 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A940B12063B12400C77796 /* RequestSender.swift */; };
 		54AABAA92065948E00E3A8EE /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AABAA82065948E00E3A8EE /* CustomActivityIndicator.swift */; };
 		54AABAAB2065993D00E3A8EE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AABAAA2065993D00E3A8EE /* ProfileViewController.swift */; };
+		54C8DE3C2066C85100495D91 /* StartNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C8DE3B2066C85100495D91 /* StartNavigationController.swift */; };
+		54FDACF92066F2BF007D267D /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FDACF82066F2BF007D267D /* Parser.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		54FDACF12066E6FC007D267D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54A940942063ADF400C77796 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54A9409B2063ADF400C77796;
+			remoteInfo = vkPhoto;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		54447AA52063F381001631E0 /* VkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkAPI.swift; sourceTree = "<group>"; };
@@ -41,21 +52,30 @@
 		54447ABB20646C75001631E0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		54447ABD20646CDA001631E0 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		54447ABF20646D92001631E0 /* VkParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkParser.swift; sourceTree = "<group>"; };
-		54447AC12064D74B001631E0 /* LoginErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginErrorParser.swift; sourceTree = "<group>"; };
 		54A9409C2063ADF400C77796 /* vkPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54A9409F2063ADF400C77796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		54A940A12063ADF400C77796 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		54A940A42063ADF400C77796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		54A940A12063ADF400C77796 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		54A940A42063ADF400C77796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Start.storyboard; sourceTree = "<group>"; };
 		54A940A62063ADF400C77796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54A940A92063ADF400C77796 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54A940AB2063ADF400C77796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54A940B12063B12400C77796 /* RequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
 		54AABAA82065948E00E3A8EE /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
 		54AABAAA2065993D00E3A8EE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		54C8DE3B2066C85100495D91 /* StartNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNavigationController.swift; sourceTree = "<group>"; };
+		54FDACEC2066E6FC007D267D /* vkPhotoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vkPhotoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		54FDACF82066F2BF007D267D /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		54A940992063ADF400C77796 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54FDACE92066E6FC007D267D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -68,8 +88,9 @@
 		54447AAB20640499001631E0 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				54A940A82063ADF400C77796 /* LaunchScreen.storyboard */,
 				54447AB020645DCD001631E0 /* AuthVK.storyboard */,
-				54A940A32063ADF400C77796 /* Main.storyboard */,
+				54A940A32063ADF400C77796 /* Start.storyboard */,
 				54447AAC206404C2001631E0 /* FriendsList.storyboard */,
 				54447ABB20646C75001631E0 /* Profile.storyboard */,
 			);
@@ -80,9 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				54C8DE3A2066A5CC00495D91 /* Cells */,
-				54A940A12063ADF400C77796 /* ViewController.swift */,
+				54FDACE72066DE09007D267D /* NavigationController */,
+				54A940A12063ADF400C77796 /* StartViewController.swift */,
 				54447AB220645E05001631E0 /* AuthVKController.swift */,
-				54447AB920646966001631E0 /* FriendsListNavigationController.swift */,
 				54447AB42064653A001631E0 /* FriendsListController.swift */,
 				54AABAAA2065993D00E3A8EE /* ProfileViewController.swift */,
 			);
@@ -101,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				54A9409C2063ADF400C77796 /* vkPhoto.app */,
+				54FDACEC2066E6FC007D267D /* vkPhotoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,7 +138,6 @@
 				54447AB620646543001631E0 /* VC */,
 				54447AAB20640499001631E0 /* Storyboards */,
 				54A940A62063ADF400C77796 /* Assets.xcassets */,
-				54A940A82063ADF400C77796 /* LaunchScreen.storyboard */,
 				54A940AB2063ADF400C77796 /* Info.plist */,
 			);
 			path = vkPhoto;
@@ -127,7 +148,7 @@
 			children = (
 				54A940B12063B12400C77796 /* RequestSender.swift */,
 				54447ABF20646D92001631E0 /* VkParser.swift */,
-				54447AC12064D74B001631E0 /* LoginErrorParser.swift */,
+				54FDACF82066F2BF007D267D /* Parser.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -147,6 +168,15 @@
 				54447AB72064662C001631E0 /* FriendsTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		54FDACE72066DE09007D267D /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				54447AB920646966001631E0 /* FriendsListNavigationController.swift */,
+				54C8DE3B2066C85100495D91 /* StartNavigationController.swift */,
+			);
+			path = NavigationController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +199,24 @@
 			productReference = 54A9409C2063ADF400C77796 /* vkPhoto.app */;
 			productType = "com.apple.product-type.application";
 		};
+		54FDACEB2066E6FC007D267D /* vkPhotoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54FDACF32066E6FC007D267D /* Build configuration list for PBXNativeTarget "vkPhotoTests" */;
+			buildPhases = (
+				54FDACE82066E6FC007D267D /* Sources */,
+				54FDACE92066E6FC007D267D /* Frameworks */,
+				54FDACEA2066E6FC007D267D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				54FDACF22066E6FC007D267D /* PBXTargetDependency */,
+			);
+			name = vkPhotoTests;
+			productName = vkPhotoTests;
+			productReference = 54FDACEC2066E6FC007D267D /* vkPhotoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -182,6 +230,11 @@
 					54A9409B2063ADF400C77796 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+					};
+					54FDACEB2066E6FC007D267D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 54A9409B2063ADF400C77796;
 					};
 				};
 			};
@@ -199,6 +252,7 @@
 			projectRoot = "";
 			targets = (
 				54A9409B2063ADF400C77796 /* vkPhoto */,
+				54FDACEB2066E6FC007D267D /* vkPhotoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -212,8 +266,15 @@
 				54A940AA2063ADF400C77796 /* LaunchScreen.storyboard in Resources */,
 				54A940A72063ADF400C77796 /* Assets.xcassets in Resources */,
 				54447AAD206404C2001631E0 /* FriendsList.storyboard in Resources */,
-				54A940A52063ADF400C77796 /* Main.storyboard in Resources */,
+				54A940A52063ADF400C77796 /* Start.storyboard in Resources */,
 				54447AB120645DCD001631E0 /* AuthVK.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54FDACEA2066E6FC007D267D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,10 +287,11 @@
 			files = (
 				54447ABA20646966001631E0 /* FriendsListNavigationController.swift in Sources */,
 				54447AC020646D92001631E0 /* VkParser.swift in Sources */,
+				54FDACF92066F2BF007D267D /* Parser.swift in Sources */,
 				54447ABE20646CDA001631E0 /* Profile.swift in Sources */,
-				54A940A22063ADF400C77796 /* ViewController.swift in Sources */,
+				54C8DE3C2066C85100495D91 /* StartNavigationController.swift in Sources */,
+				54A940A22063ADF400C77796 /* StartViewController.swift in Sources */,
 				54447AB52064653A001631E0 /* FriendsListController.swift in Sources */,
-				54447AC22064D74B001631E0 /* LoginErrorParser.swift in Sources */,
 				54447AAF20643FB4001631E0 /* Extension.swift in Sources */,
 				54AABAAB2065993D00E3A8EE /* ProfileViewController.swift in Sources */,
 				54447AB82064662C001631E0 /* FriendsTableViewCell.swift in Sources */,
@@ -241,15 +303,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		54FDACE82066E6FC007D267D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		54FDACF22066E6FC007D267D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54A9409B2063ADF400C77796 /* vkPhoto */;
+			targetProxy = 54FDACF12066E6FC007D267D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		54A940A32063ADF400C77796 /* Main.storyboard */ = {
+		54A940A32063ADF400C77796 /* Start.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				54A940A42063ADF400C77796 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Start.storyboard;
 			sourceTree = "<group>";
 		};
 		54A940A82063ADF400C77796 /* LaunchScreen.storyboard */ = {
@@ -375,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = W2H48J22L4;
 				INFOPLIST_FILE = vkPhoto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -390,6 +468,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = W2H48J22L4;
 				INFOPLIST_FILE = vkPhoto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -397,6 +476,40 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		54FDACF42066E6FC007D267D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = W2H48J22L4;
+				INFOPLIST_FILE = vkPhotoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.Semyon.vkPhotoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vkPhoto.app/vkPhoto";
+			};
+			name = Debug;
+		};
+		54FDACF52066E6FC007D267D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = W2H48J22L4;
+				INFOPLIST_FILE = vkPhotoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.Semyon.vkPhotoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vkPhoto.app/vkPhoto";
 			};
 			name = Release;
 		};
@@ -417,6 +530,15 @@
 			buildConfigurations = (
 				54A940AF2063ADF400C77796 /* Debug */,
 				54A940B02063ADF400C77796 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54FDACF32066E6FC007D267D /* Build configuration list for PBXNativeTarget "vkPhotoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54FDACF42066E6FC007D267D /* Debug */,
+				54FDACF52066E6FC007D267D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -10,54 +10,48 @@ import UIKit
 
 class AuthVKController: UIViewController, UIWebViewDelegate {
     
-    @IBOutlet weak var webView: UIWebView!
-    @IBOutlet weak var infoLabel: UILabel!
-    
     let requestSender = RequestSender()
     let authString = "https://oauth.vk.com/authorize?client_id=2949451&scope=pages,audio,video,friends,status,offline,wall,groups,photos,questions,offers&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token"
     
-    let logoutString = "https://oauth.vk.com/logout?client_id=2949451"
+    //MARK: - IBOutlets
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var infoLabel: UILabel!
     
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Авторизация"
-        webView.delegate = self
         bindToWebView()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        rightBarButton()
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        
         let urlString = webView.request!.url!.absoluteString
+        findTokenInUrl(urlString: urlString)
+    }
+}
+
+//MARK: - Bindings
+extension AuthVKController {
+    
+    @objc private func bindToWebView(){
+        self.webView.loadRequest(URLRequest(url: URL(string: authString)!))
+    }
+    
+    private func rightBarButton(){
+        let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action:  #selector(self.bindToWebView))
+        navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    private func findTokenInUrl(urlString: String){
         if let t = urlString.slice(from: "access_token=", to: "&") {
             VkAPI.shared.token = t
             infoLabel.text = "Успешно!"
             if let vc = UIStoryboard(name: "FriendsList", bundle: nil).instantiateViewController(withIdentifier: "FriendsListNavCID") as? FriendsListNavigationController {
                 present(vc, animated: true, completion: nil)
             }
-        } else if urlString.range(of:"error") != nil {
-            removeCookies()
-            self.webView.loadRequest(URLRequest(url: URL(string: logoutString)!))
-            infoLabel.text = "Пожалуйста, перелогиньтесь!!"
-        }
-    }
-    
-    private func bindToWebView(){
-        self.webView.loadRequest(URLRequest(url: URL(string: authString)!))
-    }
-    
-    func removeCookies(){
-        let cookie = HTTPCookie.self
-        let cookieJar = HTTPCookieStorage.shared
-        
-        for cookie in cookieJar.cookies! {
-            cookieJar.deleteCookie(cookie)
         }
     }
 }
