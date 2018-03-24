@@ -16,13 +16,13 @@ class AuthVKController: UIViewController, UIWebViewDelegate {
     let requestSender = RequestSender()
     let authString = "https://oauth.vk.com/authorize?client_id=2949451&scope=pages,audio,video,friends,status,offline,wall,groups,photos,questions,offers&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token"
     
-    
-    let logoutString = "https://oauth.vk.com/logout?client_id=6343431"
+    let logoutString = "https://oauth.vk.com/logout?client_id=2949451"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.delegate = self
         
+        self.title = "Авторизация"
+        webView.delegate = self
         bindToWebView()
     }
     

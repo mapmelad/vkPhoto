@@ -23,17 +23,22 @@ class VkParser: Parser<[Profile]> {
                 let response = json["response"] as? [String: Any]
                 if let items = response!["items"] as? [[String: Any]] {
                     for i in items {
-                    if let n = i["first_name"], let ln = i["last_name"], let p50 = i["photo_50"] {
-                        var p200 = ""
-                        
-                        let image50 = try? Data(contentsOf: URL(string: (p50 as! String))!)
-                        
-                        if let linkToPhoto = i["photo_200"] {
-                            p200 = linkToPhoto as! String
+                        if let id = i["id"],
+                            let fn = i["first_name"],
+                            let ln = i["last_name"],
+                            let p50 = i["photo_50"],
+                            let p200 = i["photo_200_orig"] {
+                            // let image50 = try? Data(contentsOf: URL(string: (p50 as! String))!)
+                            pictureModelds.append(Profile(
+                                id: id as! Int,
+                                first_name: fn as! String,
+                                last_name: ln as! String,
+                                photo_50: p50 as! String,
+                                photo_200: p200 as! String,
+                                image50: nil)
+                            )
                         }
-                        pictureModelds.append(Profile(first_name: n as! String, last_name: ln as! String, photo_50: p50 as! String, photo_200: p200, image_50: image50!))
                     }
-                }
                 }
             }
         } catch {

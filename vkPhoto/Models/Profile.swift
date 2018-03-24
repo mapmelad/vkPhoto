@@ -9,9 +9,10 @@
 import Foundation
 
 struct Profile {
+    let id: Int
     let first_name: String
     let last_name: String
     let photo_50: String
     let photo_200: String
-    let image_50: Data
+    var image50: Data?
 }

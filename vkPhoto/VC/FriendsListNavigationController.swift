@@ -12,13 +12,8 @@ final class FriendsListNavigationController: UINavigationController {
 
     override func viewDidLoad() { super.viewDidLoad() }
 
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return topViewController?.preferredStatusBarStyle ?? .default
-//    }
-//
-//    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-//        super.pushViewController(viewController, animated: animated)
-//        setNeedsStatusBarAppearanceUpdate()
-//    }
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        super.pushViewController(viewController, animated: animated)
+    }
     
 }

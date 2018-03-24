@@ -30,7 +30,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gUS-hI-zUR">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="gUS-hI-zUR">
                                                     <rect key="frame" x="250" y="5" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="MHZ-cS-wE4"/>
@@ -53,8 +53,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imageLabel" destination="gUS-hI-zUR" id="JYM-Cv-mCV"/>
                                             <outlet property="nameLabel" destination="c0A-QW-NfY" id="MTj-if-IlY"/>
+                                            <outlet property="profileImage" destination="gUS-hI-zUR" id="8tq-w0-Qmr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -103,4 +103,7 @@
             <point key="canvasLocation" x="-321" y="171"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profile" width="1280" height="1280"/>
+    </resources>
 </document>
