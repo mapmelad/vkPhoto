@@ -20,11 +20,6 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //MARK: - IBActions
     @IBAction func sendRequestAction(_ sender: Any) {
         if let viewController = UIStoryboard(name: "AuthVK", bundle: nil).instantiateViewController(withIdentifier: "AuthVKControllerID") as? AuthVKController {

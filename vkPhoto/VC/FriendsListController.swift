@@ -29,11 +29,6 @@ class FriendsListController: UIViewController {
         getFriends()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //MARK: - IBActions
     @IBAction func exitButtonAction(_ sender: Any) {
         bindExit()

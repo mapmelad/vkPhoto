@@ -24,7 +24,7 @@ class RequestSender: IRequestSender {
     func send<T>(config: String, completionHandler: @escaping (Result<T>) -> Void) {
         
         guard let urlRequest = URL(string: config) else {
-            completionHandler(Result.Fail("url string can't be parser to URL"))
+            completionHandler(Result.Fail("Строка не может быть преобразована в URL"))
             return
         }
         

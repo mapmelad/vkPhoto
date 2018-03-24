@@ -15,9 +15,11 @@ class VkParser: Parser<[Profile]> {
         var pictureModelds: [Profile] = []
         do {
             let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+            
             if let json = jsonSerialized {
                 if let response = json["response"] as? [String: Any], let items = response["items"] as? [[String: Any]] {
                     for i in items {
+                        
                         if let id = i["id"],
                             let fn = i["first_name"],
                             let ln = i["last_name"],
@@ -32,18 +34,11 @@ class VkParser: Parser<[Profile]> {
                                 photo_200: p200 as! String,
                                 image50: nil)
                             )
-                        } else {
-                          print("Не найден один из параметров профиля")
-                        }
+                        } else { print("Не найден один из параметров профиля") }
                     }
-                } else {
-                    print("Не найден response или items")
-                    return nil
-                }
+                } else { print("Не найден response или items"); return nil }
             }
-        } catch {
-            print(error.localizedDescription)
-        }
+        } catch { print(error.localizedDescription) }
         
         return pictureModelds
     }

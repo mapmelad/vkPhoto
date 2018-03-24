@@ -9,6 +9,8 @@
 import Foundation
 
 class VkAPI {
+    
     static let shared = VkAPI()
+    
     var token: String? = nil
 }
